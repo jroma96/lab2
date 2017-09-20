@@ -14,9 +14,6 @@ namespace lab_5
 
     namespace Huffman
     {
-        //http://snipd.net/huffman-coding-in-c
-        //http://stackoverflow.com/questions/27104535/huffman-tree-traversing
-        //https://code.msdn.microsoft.com/windowsapps/Building-a-Huffman-f29b3e81
         public class HuffmanT
         {
             private List<Node> nodes = new List<Node>();
@@ -46,10 +43,10 @@ namespace lab_5
 
                     if (orderedNodes.Count >= 2)
                     {
-                        // Take first two items
+             
                         List<Node> taken = orderedNodes.Take(2).ToList<Node>();
 
-                        // Create a parent node by combining the frequencies
+                        
                         Node parent = new Node()
                         {
                             Symbol = '*',

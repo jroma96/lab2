@@ -22,7 +22,6 @@ namespace lab_5
 
             public List<bool> Traverse(char symbol, List<bool> data)
             {
-                // Leaf
                 if (Right == null && Left == null)
                 {
                     if (symbol.Equals(this.Symbol))

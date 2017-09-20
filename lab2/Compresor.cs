@@ -8,7 +8,7 @@ namespace Rle
     public class Compresor
     {
         private string entrada;
-        private char[] Caracter;
+        private char[] caracter;
         private StringBuilder sb;
 
         public string salida { get; set; }
@@ -16,8 +16,8 @@ namespace Rle
         public Compresor(string entrada)
         {
             this.entrada = entrada;
-            Caracter = new char[entrada.Length];
-            Caracter = entrada.ToCharArray();
+            caracter = new char[entrada.Length];
+            caracter = entrada.ToCharArray();
             sb = new StringBuilder();
             
         }
@@ -28,8 +28,8 @@ namespace Rle
             int Iguales;
             while (i < entrada.Length)
             {
-                Iguales = IgualRepetido(Caracter[i], i);                
-                Salida(Iguales, Caracter[i]);
+                Iguales = IgualRepetido(caracter[i], i);                
+                Salida(Iguales, caracter[i]);
                 i += Iguales;
                 Iguales = 0;                
             }
@@ -39,12 +39,12 @@ namespace Rle
 
         private int Aux(char c, int i)
         {            
-            char Auxj = Caracter[i++];
+            char Auxj = caracter[i++];
             int cont = 1;
             while (c == Auxj && i < entrada.Length)
             {             
                 cont++;
-                Auxj = Caracter[i++];
+                Auxj = caracter[i++];
             }
             return cont;
         }
@@ -52,7 +52,7 @@ namespace Rle
         private int IgualRepetido(char c, int i)
         {
             int cont = 0;
-            while (c == Caracter[i])
+            while (c == caracter[i])
             {
                 cont++;
                 i++;
