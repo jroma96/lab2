@@ -16,30 +16,30 @@ namespace lab_5
     {
         public class HuffmanT
         {
-            private List<Node> nodes = new List<Node>();
+            private List<Node> nodos = new List<Node>();
             public Node Root { get; set; }
-            public Dictionary<char, int> Frequencies = new Dictionary<char, int>();
+            public Dictionary<char, int> Frequencias = new Dictionary<char, int>();
 
             public List<Node> Build(string source)
             {
                 for (int i = 0; i < source.Length; i++)
                 {
-                    if (!Frequencies.ContainsKey(source[i]))
+                    if (!Frequencias.ContainsKey(source[i]))
                     {
-                        Frequencies.Add(source[i], 0);
+                        Frequencias.Add(source[i], 0);
                     }
 
-                    Frequencies[source[i]]++;
+                    Frequencias[source[i]]++;
                 }
 
-                foreach (KeyValuePair<char, int> symbol in Frequencies)
+                foreach (KeyValuePair<char, int> symbol in Frequencias)
                 {
-                    nodes.Add(new Node() { Symbol = symbol.Key, Frequency = symbol.Value });
+                    nodos.Add(new Node() { Symbol = symbol.Key, Frequency = symbol.Value });
                 }
 
-                while (nodes.Count > 1)
+                while (nodos.Count > 1)
                 {
-                    List<Node> orderedNodes = nodes.OrderBy(node => node.Frequency).ToList<Node>();
+                    List<Node> orderedNodes = nodos.OrderBy(node => node.Frequency).ToList<Node>();
 
                     if (orderedNodes.Count >= 2)
                     {
@@ -55,15 +55,15 @@ namespace lab_5
                             Right = taken[1]
                         };
 
-                        nodes.Remove(taken[0]);
-                        nodes.Remove(taken[1]);
-                        nodes.Add(parent);
+                        nodos.Remove(taken[0]);
+                        nodos.Remove(taken[1]);
+                        nodos.Add(parent);
                     }
 
-                    this.Root = nodes.FirstOrDefault();
+                    this.Root = nodos.FirstOrDefault();
 
                 }
-                return nodes;
+                return nodos;
 
             }
 
